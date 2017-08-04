@@ -3,9 +3,7 @@
 let eps = 0.001 in
 
 let rec newton_raphson x a =  
-   let improv x a = 
-      (x +. a/.x)/.2.
-   in 
+   let improv x a = (x +. a/.x)/.2. in 
 
    let satis x a = 
       if (abs_float(x*.x -. a) < eps) then 
