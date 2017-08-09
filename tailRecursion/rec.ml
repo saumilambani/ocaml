@@ -19,7 +19,7 @@ let fact2 i =
    else
       loop (acc*i) (i-1)
   in
-  loop 1
+  loop 1 i
 in
 
 let k = fact2 5 in
