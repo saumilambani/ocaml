@@ -1,5 +1,6 @@
 (* Calculating factorial using tail and non-tail recursion *)
 
+(*** FACTORIAL ***)
 (* Tail Recursion *)
 let rec fact i =
    if i = 0 then
@@ -24,3 +25,12 @@ in
 
 let k = fact2 5 in
 Printf.printf "%n \n" k;;
+
+(** REVERSING A LIST **)
+let rec rev acc = function
+  [] -> acc 
+| h::t -> rev (h::acc) t
+
+
+let a = rev [] [1;2;3;4];; 
+let () = List.iter (Printf.printf "%n ") a;;
