@@ -59,3 +59,24 @@ let rec rev acc = function
  | h::t -> rev (h::acc) t
 
 let () = List.iter (Printf.printf("%n ")) (rev [] li);; 
+
+(* 6 - check if string is plaindrome *)
+let isPalindrom list = 
+   list = List.rev list
+
+let a = ["a"; "b"; "c"; "b"; "a"];;
+let b = rev [] a;;
+let () = List.iter (Printf.printf("%s ")) a;; 
+let () = List.iter (Printf.printf("%s ")) b;; 
+
+if (a = b) then 
+   Printf.printf(" is palindrome \n")
+else
+   Printf.printf(" not palindrome \n")
+
+let c = isPalindrom a;;
+
+match c with 
+| true -> Printf.printf ("is palindrom \n")
+| false -> Printf.printf ("is not palindrom \n")
+
