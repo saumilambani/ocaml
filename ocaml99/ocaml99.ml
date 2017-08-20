@@ -80,3 +80,34 @@ match c with
 | true -> Printf.printf ("is palindrom \n")
 | false -> Printf.printf ("is not palindrom \n")
 
+(* 7 - Flattening a nested list *)
+
+type 'a node = 
+| One of 'a
+| Many of 'a node list;;
+
+let flatten list = 
+   let rec aux acc = function
+   | [] -> acc
+   | One x::t -> aux (x::acc) t 
+   | Many l::t -> aux (aux acc l) t
+   in
+   List.rev (aux [] list);;
+
+flatten [ One "a" ; Many [ One "b" ; Many [ One "c" ; One "d" ] ; One "e" ] ];;
+
+(* 8 - Eliminate consecutive duplicated of list elements *)
+let rec compress acc last = function
+| [] -> acc 
+| h::t -> if (h = last) then 
+            compress acc h t 
+          else
+             compress (h::acc) h t;;
+let compressed = compress [] "" ["a";"a";"a";"b";"b";"c"];;
+let () = List.iter (Printf.printf("%s ")) (List.rev compressed);; 
+
+(* Alternate *)
+let rec compress = function 
+| a::(b::_ as t) -> if a = b then compress t else a :: compress t
+| smaller -> smaller
+
